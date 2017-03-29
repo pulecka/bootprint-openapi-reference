@@ -1,0 +1,58 @@
+{{!--
+    This partial renders the <body> of the HTML page.
+    @api public
+
+--}}
+
+<nav class="oa-sidebar">
+  <h1 id="logo">{{info.title}}</h1>
+  <h2>{{info.version}}</h2>
+
+  <h3>Topics</h3>
+  <ul>
+    {{#each commons}}
+      {{>reference/topicLink}}
+    {{/each}}
+  </ul>
+  <h3>Areas</h3>
+  <ul>
+    {{#each paths}}
+      <li>
+        {{info.title}}
+      </li>
+    {{/each}}
+  </ul>
+</nav>
+
+<content>
+  <h1>{{info.title}}</h2>
+  <p class="sw-info">{{#if basePath}}Base URL: <span class="sw-info-basePath">{{basePath}}</span>, {{/if}}Version: <span class="sw-info-version">{{info.version}}</span></p>
+  <p>{{md info.description}}</p>
+
+  {{#each commons}}
+    <section>
+      <h2 id="topic-{{reference--kebab-case info.title}}">{{info.title}}</h2>
+      <p>{{md info.description}}</p>
+
+      {{>swagger/definitions definitions=definitions}}
+    </section>
+  {{/each}}
+
+  {{#each paths}}
+    <section>
+      <h2 id="topic-{{reference--kebab-case info.title}}">{{info.title}}</h2>
+      <p>{{md info.description}}</p>
+
+      {{>swagger/securityDefinitions}}
+
+      {{>swagger/paths paths=paths}}
+
+      {{>swagger/parameterDefinitions parameters=parameters}}
+
+      {{>swagger/responseDefinitions responses=responses}}
+
+      {{>swagger/definitions definitions=definitions}}
+    </section>
+  {{/each}}
+
+</content>
