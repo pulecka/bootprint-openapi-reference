@@ -1,0 +1,41 @@
+{{!--
+    Renders details about a single response
+    @param {Response} response a swagger response-object
+--}}
+{{! If global is set, attach an id to the table row }}
+<div class="oa-component">
+  <section class="oa-section col-md-6">
+    {{md response.description}}
+  </section>
+
+  {{#if response.headers}}
+    <section class="oa-section col-md-6">
+      <h4>Headers</h4>
+      <ul class="oa-parameters-list">
+        {{#each response.headers}}
+          {{#if $ref}}
+            {{> reference/headerRow header=(json-schema--resolve-ref $ref) name=@key}}
+          {{else}}
+            {{> reference/headerRow header=. name=@key}}
+          {{/if}}
+        {{/each}}
+      </ul>
+    </section>
+  {{/if}}
+
+  {{#if response.schema}}
+    <section class="oa-section col-md-6">
+      <h4>Schema</h4>
+      {{>swagger/model model=response.schema}}
+    </section>
+  {{/if}}
+
+  {{#each response.examples}}
+    <aside class="oa-aside col-md-6">
+      <div class="sw-response-examples">
+        <div class="label label-default">Example for {{@key}}</div>
+        {{swagger--example . @key}}
+      </div>
+    <aside>
+  {{/each}}
+</div>

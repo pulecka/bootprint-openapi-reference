@@ -1,0 +1,25 @@
+{{!
+    Renders a json.schema inside a bootstrap-panel.
+    @public
+    @readonly
+}}
+<div {{#if title}}id="definition-{{htmlId title}}"{{/if}}>
+    {{#if title}}
+        <div class="panel-heading">
+            {{#if anchor}}
+                <h3><a name="/definitions/{{title}}"></a>{{title}}:
+                    <span class="json-property-type">{{>json-schema/datatype}}</span>
+                </h3>
+            {{else}}
+                <h3>{{title}}</h3>
+            {{/if}}
+        </div>
+    {{/if}}
+    <div>
+        {{#if $ref}}
+            {{>json-schema/reference $ref}}
+        {{else}}
+            {{>json-schema/body}}
+        {{/if}}
+    </div>
+</div>

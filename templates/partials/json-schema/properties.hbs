@@ -1,0 +1,22 @@
+{{!Renders json-schema object properties.}}
+{{#if properties}}
+  <section class="oa-section col-md-6">
+    {{#each properties}}
+      <li class="oa-parameter">
+        <label class="oa-parameter-name">{{@key}}</label>
+        <label class="oa-parameter-type">{{>json-schema/datatype discriminator=(equal @key ../discriminator)}}
+          {{#ifcontains ../required @key}}
+            <span class="json-property-required"></span>
+          {{/ifcontains}}
+          {{#ifeq @key ../discriminator}}
+            <span class="json-property-discriminator"></span>
+          {{/ifeq}}
+          {{#if readOnly}}
+            <span class="json-property-read-only"></span>
+          {{/if}}
+        </label>
+        <div class="oa-parameter-description">{{md description}}</div>
+      </li>
+    {{/each}}
+  </section>
+{{/if}}

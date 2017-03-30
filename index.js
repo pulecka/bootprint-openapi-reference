@@ -19,6 +19,7 @@ module.exports = function bootprintOpenapiReference(builder) {
       },
       'less': {
         'main': [
+          require.resolve('highlight.js/styles/tomorrow-night-eighties.css'),
           require.resolve('./styles/theme.less')
         ]
       }

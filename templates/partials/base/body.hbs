@@ -30,29 +30,35 @@
   <p>{{md info.description}}</p>
 
   {{#each commons}}
-    <section>
-      <h2 id="topic-{{reference--kebab-case info.title}}">{{info.title}}</h2>
-      <p>{{md info.description}}</p>
+    <div class="oa-topic">
+      <h2 class="oa-section-header" id="topic-{{reference--kebab-case info.title}}">{{info.title}}</h2>
 
-      {{>swagger/definitions definitions=definitions}}
-    </section>
+      <section class="oa-section col-md-6">
+        {{md info.description}}
+      </section>
+
+      {{>reference/responseDefinitions responses=responses}}
+
+      {{>reference/definitions definitions=definitions}}
+    </div>
   {{/each}}
 
   {{#each paths}}
-    <section>
-      <h2 id="topic-{{reference--kebab-case info.title}}">{{info.title}}</h2>
-      <p>{{md info.description}}</p>
+    <div class="oa-area">
+      <h2 class="oa-section-header" id="topic-{{reference--kebab-case info.title}}">{{info.title}}</h2>
 
-      {{>swagger/securityDefinitions}}
+      <section class="oa-section col-md-6">
+        {{md info.description}}
+      </section>
 
-      {{>swagger/paths paths=paths}}
+      {{>reference/paths paths=paths basePath=basePath}}
 
       {{>swagger/parameterDefinitions parameters=parameters}}
 
-      {{>swagger/responseDefinitions responses=responses}}
+      {{>reference/responseDefinitions responses=responses}}
 
-      {{>swagger/definitions definitions=definitions}}
-    </section>
+      {{>reference/definitions definitions=definitions}}
+    </div>
   {{/each}}
 
 </content>

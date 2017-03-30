@@ -1,0 +1,21 @@
+{{!--
+    This partial renders a box containing information about a single operation of the service
+    (such as calling a POST on the "/pets" resource).
+    @param {Operation} operation a Swagger-Operation object.
+    @param {string} method the http-method (GET, POST, DELETE, PUT, PATCH)
+    @api public
+--}}
+<div id="operation-{{htmlId path}}-{{htmlId method}}" class="oa-component">
+  <h3 class="operation-summary">{{md summary stripParagraph="true"}}</h3>
+  <code><span class="operation-name">{{toUpperCase method}}</span> {{basePath}}<strong>{{path}}</strong></code>
+  <section class="oa-section">
+    {{md operation.description}}
+  </section>
+  {{! The _request_body variable is filled with the parameter `body` by the preprocessor. }}
+  {{#if _show_requst_body_section}}
+      {{>swagger/request-body consumes=operation.consumes body=_request_body}}
+  {{/if}}
+  {{>swagger/parameters parameters=parameters}}
+  {{>swagger/responses}}
+  {{>swagger/security}}
+</div>

@@ -1,0 +1,11 @@
+{{!--
+    Display a single parameter in a table row.
+    @param {Header} header a (Header)[https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md#headerObject] object
+    @param {string} name the name of  the response header
+    @api public
+--}}
+<li class="oa-parameter">
+  <label class="oa-parameter-name">{{name}}</label>
+  <label class="oa-parameter-type">{{>json-schema/datatype header}}</label>
+  <div class="oa-parameter-description">{{md header.description}}</div>
+</li>

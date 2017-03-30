@@ -1,0 +1,3 @@
+{{#eachSorted pathItems}}
+  {{>reference/operation . operation=. method=@key path=../path basePath=../basePath}}
+{{/eachSorted}}
