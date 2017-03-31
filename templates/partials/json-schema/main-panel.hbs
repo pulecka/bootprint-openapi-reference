@@ -4,22 +4,25 @@
     @readonly
 }}
 <div {{#if title}}id="definition-{{htmlId title}}"{{/if}}>
-    {{#if title}}
-        <div class="panel-heading">
-            {{#if anchor}}
-                <h3><a name="/definitions/{{title}}"></a>{{title}}:
-                    <span class="json-property-type">{{>json-schema/datatype}}</span>
-                </h3>
-            {{else}}
-                <h3>{{title}}</h3>
-            {{/if}}
-        </div>
+  {{#if title}}
+    {{#if anchor}}
+      <h3>
+        <a name="/definitions/{{title}}"></a>{{title}}:
+        <span class="json-property-type">{{>json-schema/datatype}}</span>
+      </h3>
+    {{else}}
+      <h3>{{title}}</h3>
     {{/if}}
-    <div>
-        {{#if $ref}}
-            {{>json-schema/reference $ref}}
-        {{else}}
-            {{>json-schema/body}}
-        {{/if}}
-    </div>
+  {{/if}}
+  <div>
+    {{#if $ref}}
+      <h4>
+        Schema:
+        {{> json-schema/reference $ref}}
+      </h4>
+    {{else}}
+      <h4>Schema</h4>
+      {{> json-schema/body schema=.}}
+    {{/if}}
+  </div>
 </div>

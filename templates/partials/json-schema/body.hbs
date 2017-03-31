@@ -2,36 +2,36 @@
     Renders a json-schema without the surrounding panel.
     @param {boolean} showType whether or not to show the plain datatype for primitives
 }}
-{{#if description}}
+{{#if schema.description}}
   <section class="oa-section col-md-6">
-    {{md description}}
+    {{md schema.description}}
   </section>
 {{/if}}
 
-{{#if type}}
-    {{! Render differently depending on type}}
-    {{#ifeq type 'object'}}
-        {{>json-schema/type-object}}
-    {{else}}
-        {{#ifeq type 'array'}}
-            {{#if items}}
-                {{>json-schema/array-items items}}
-            {{/if}}
-        {{/ifeq}}
+{{#if schema.type}}
+  {{! Render differently depending on type}}
+  {{#ifeq schema.type 'object'}}
+    {{>json-schema/type-object schema}}
+  {{else}}
+    {{#ifeq schema.type 'array'}}
+      {{#if schema.items}}
+        {{>json-schema/array-items schema.items}}
+      {{/if}}
     {{/ifeq}}
+  {{/ifeq}}
 {{else}}
-    {{>json-schema/type-object}}
+  {{>json-schema/type-object schema}}
 {{/if}}
-{{#if allOf}}
-    {{>json-schema/allOf allOf}}
+{{#if schema.allOf}}
+  {{>json-schema/allOf schema.allOf}}
 {{/if}}
-{{#if anyOf}}
-    {{>json-schema/anyOf anyOf}}
+{{#if schema.anyOf}}
+  {{>json-schema/anyOf schema.anyOf}}
 {{/if}}
 
-{{#if example}}
+{{#if schema.example}}
   <aside class="oa-aside col-md-6">
     <label class="label label-default">Example</div>
-    {{json example}}
+    {{json schema.example}}
   </aside>
 {{/if}}
