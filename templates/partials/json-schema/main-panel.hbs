@@ -20,6 +20,7 @@
         Schema:
         {{> json-schema/reference $ref}}
       </h4>
+      {{> json-schema/body schema=(json-schema--resolve-ref $ref)}}
     {{else}}
       <h4>Schema</h4>
       {{> json-schema/body schema=.}}

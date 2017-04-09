@@ -1,0 +1,17 @@
+{{reference--set-context .}}
+<div class="oa-area">
+  <h2 class="oa-section-header" id="area-{{htmlId info.title}}">{{info.title}}</h2>
+
+  <section class="oa-section col-md-6">
+    {{md info.description}}
+  </section>
+
+  {{>reference/paths paths=paths basePath=basePath}}
+
+  {{>reference/parameterDefinitions parameters=parameters}}
+
+  {{>reference/responseDefinitions responses=responses}}
+
+  {{>reference/definitions definitions=definitions}}
+</div>
+{{reference--clear-context}}
