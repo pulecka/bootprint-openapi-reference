@@ -1,41 +1,24 @@
 {{!--
     This partial renders the <body> of the HTML page.
     @api public
-
 --}}
 
-<nav class="oa-sidebar">
-  <h1 id="logo">{{info.title}}</h1>
-  <h2>{{info.version}}</h2>
-
-  <h3>Topics</h3>
-  <ul>
-    {{#each commons}}
-      {{>reference/topicLink}}
-    {{/each}}
-  </ul>
-  <h3>Areas</h3>
-  <ul>
-    {{#each paths}}
-      <li>
-        {{info.title}}
-      </li>
-    {{/each}}
-  </ul>
-</nav>
+{{> base/sidebar}}
 
 <content>
-  <h1>{{info.title}}</h2>
-  <p class="sw-info">{{#if basePath}}Base URL: <span class="sw-info-basePath">{{basePath}}</span>, {{/if}}Version: <span class="sw-info-version">{{info.version}}</span></p>
+  <h1 id="{{htmlId info.title}}">{{info.title}}</h1>
+  <p class="sw-info">Version <span class="sw-info-version">{{info.version}}</span></p>
   <p>{{md info.description}}</p>
 
-  {{#each commons}}
+  {{#each topics}}
     <div class="oa-topic">
-      <h2 class="oa-section-header" id="topic-{{reference--kebab-case info.title}}">{{info.title}}</h2>
+      <h2 class="oa-section-header" id="topic-{{htmlId info.title}}">{{info.title}}</h2>
 
       <section class="oa-section col-md-6">
         {{md info.description}}
       </section>
+
+      {{>reference/parameterDefinitions parameters=parameters}}
 
       {{>reference/responseDefinitions responses=responses}}
 
@@ -43,9 +26,9 @@
     </div>
   {{/each}}
 
-  {{#each paths}}
+  {{#each areas}}
     <div class="oa-area">
-      <h2 class="oa-section-header" id="topic-{{reference--kebab-case info.title}}">{{info.title}}</h2>
+      <h2 class="oa-section-header" id="area-{{htmlId info.title}}">{{info.title}}</h2>
 
       <section class="oa-section col-md-6">
         {{md info.description}}
@@ -53,7 +36,7 @@
 
       {{>reference/paths paths=paths basePath=basePath}}
 
-      {{>swagger/parameterDefinitions parameters=parameters}}
+      {{>reference/parameterDefinitions parameters=parameters}}
 
       {{>reference/responseDefinitions responses=responses}}
 

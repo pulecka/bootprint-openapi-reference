@@ -1,22 +1,71 @@
 body {
+  background: #fafcfc;
+  font-family: "Source Sans Pro", Helvetica, HelveticaNeue, Arial, sans-serif;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: #0099e5;
+  text-decoration: none;
 }
 
 nav.oa-sidebar {
   position: absolute;
   top: 0;
   left: 0;
-  width: 240px;
+  width: 200px;
   padding: 20px;
-  background: #fafcfc;
-  border-right: 1px solid #f0f4f7;
+}
+
+.oa-logo {
+  a {
+    color: #4c555a;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.oa-sidebar-heading {
+  margin: 0;
+  padding-bottom: 4px;
+
+  &:first-child {
+    padding-top: 20px;
+  }
+}
+
+.oa-sidebar-nav-items {
+  margin: 0;
+  padding: 0 0 20px;
+  line-height: 20px;
+  list-style: none;
+}
+
+.oa-sidebar-nav-item {
+  display: block;
+  margin: 0;
+  padding: 6px 0;
+  color: #4c555a;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 content {
   position: absolute;
   top: 0;
-  left: 240px;
+  left: 200px;
   right: 0;
-  padding: 20px;
+  padding: 16px 30px;
   .gradient;
 }
 
@@ -39,11 +88,33 @@ pre {
   border: none
 }
 
+pre, code {
+  font-family: "Source Code Pro", Menlo, monospace;
+}
+
+h1, h2, h3, h4 {
+  color: #4c555a;
+}
+
+h1 {
+  margin: 0 0 26px;
+  font-size: 26px;
+}
+
+h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+}
+
 h4, h5 {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
   text-transform: uppercase;
+}
+
+h5 {
+  color: #939da3;
 }
 
 .oa-parameter {
@@ -88,4 +159,15 @@ h4, h5 {
 .oa-topic,
 .oa-area {
   padding: 20px 0;
+}
+
+.operation-path {
+  float: left;
+  clear: left;
+  margin: 0 0 10px;
+  padding: 6px 10px;
+}
+
+.sw-responses {
+  clear: both;
 }

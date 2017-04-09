@@ -1,0 +1,23 @@
+{{!--
+    This partial renders the sidebar <nav> of the HTML page.
+    @api public
+
+--}}
+<nav class="oa-sidebar">
+  <h2 class="oa-logo">
+    <a href="#{{type}}-{{htmlId info.title}}">API Reference</a>
+  </h2>
+
+  <h5 class="oa-sidebar-heading">Topics</h3>
+  <ul class="oa-sidebar-nav-items">
+    {{#each topics}}
+    {{> reference/navLink title=info.title type='topic'}}
+    {{/each}}
+  </ul>
+  <h5 class="oa-sidebar-heading">Areas</h3>
+  <ul class="oa-sidebar-nav-items">
+    {{#each areas}}
+      {{> reference/navLink title=info.title type='area'}}
+    {{/each}}
+  </ul>
+</nav>

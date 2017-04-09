@@ -39,7 +39,7 @@
     "chai": "^3.3.0",
     "chai-as-promised": "^5.1.0",
     "cheerio": "^0.19.0",
-    "customize": "^0.6.0",
+    "customize": "^0.6.1",
     "customize-engine-handlebars": "^0.5.2",
     "deep-aplus": "^1.0.4",
     "find-package": "^1.0.0",

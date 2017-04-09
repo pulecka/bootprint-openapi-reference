@@ -14,7 +14,7 @@ module.exports = function bootprintOpenapiReference(builder) {
     .merge({
       'handlebars': {
         'partials': path.join(__dirname, 'templates/partials'),
-        'helpers': require.resolve('./templates/helpers.js'),
+        'helpers': require('./templates/helpers.js'),
         'preprocessor': require('./lib/preprocessor.js')
       },
       'less': {
