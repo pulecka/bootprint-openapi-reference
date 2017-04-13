@@ -55,8 +55,5 @@
     "openapi-to-html",
     "swagger-to-html",
     "swagger"
-  ],
-  "files": [
-    "index.js"
   ]
 }
