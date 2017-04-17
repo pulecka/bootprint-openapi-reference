@@ -10,20 +10,20 @@ var path = require('path')
  */
 module.exports = function bootprintOpenapiReference(builder) {
   return builder
-  .load(require('bootprint-openapi'))
-    .merge({
-      'handlebars': {
-        'partials': path.join(__dirname, 'templates/partials'),
-        'helpers': require('./templates/helpers.js'),
-        'preprocessor': require('./lib/preprocessor.js')
-      },
-      'less': {
-        'main': [
-          require.resolve('highlight.js/styles/tomorrow-night-eighties.css'),
-          require.resolve('./styles/theme.less')
-        ]
-      }
-    })
+    .load(require('bootprint-openapi'))
+      .merge({
+        'handlebars': {
+          'partials': path.join(__dirname, 'templates/partials'),
+          'helpers': require('./templates/helpers.js'),
+          'preprocessor': require('./lib/preprocessor.js')
+        },
+        'less': {
+          'main': [
+            require.resolve('highlight.js/styles/tomorrow-night-eighties.css'),
+            require.resolve('./styles/theme.less')
+          ]
+        }
+      })
 }
 
 // Add "package" to be used by bootprint-doc-generator

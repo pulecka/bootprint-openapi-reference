@@ -1,3 +1,4 @@
+var path = require('path')
 var _ = require('lodash')
 
 module.exports = {
@@ -9,7 +10,8 @@ module.exports = {
     var hashParts = hash.split('/')
     var current
     if (url.length > 0) {
-      current = options.data.root._$refs[url]
+      var resolved = path.resolve(url)
+      current = options.data.root._$refs[resolved]
     } else if (options.data.context) {
       current = options.data.context
     } else {
