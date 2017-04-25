@@ -10,8 +10,7 @@ module.exports = {
     var hashParts = hash.split('/')
     var current
     if (url.length > 0) {
-      var resolved = path.resolve(url)
-      current = options.data.root._$refs[resolved]
+      current = options.data.root._$refs.get(url)
     } else if (options.data.context) {
       current = options.data.context
     } else {

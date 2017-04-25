@@ -10,12 +10,13 @@
   <p class="sw-info">Version <span class="sw-info-version">{{info.version}}</span></p>
   <p>{{md info.description}}</p>
 
-  {{#each topics}}
-    {{>reference/topic}}
-  {{/each}}
+  {{#if topics }}
+    {{#each topics}}
+      {{>reference/topic}}
+    {{/each}}
+  {{/if}}
 
   {{#each areas}}
     {{>reference/area}}
   {{/each}}
-
 </content>
