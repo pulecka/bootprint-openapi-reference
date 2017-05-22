@@ -8,7 +8,10 @@
 --}}
 
 <li class="oa-parameter">
-  <label class="oa-parameter-name">{{parameter.name}}</label>
+  <label class="oa-parameter-name">
+    {{parameter.name}}
+    <span class="json-property-type">({{parameter.in}})</span>
+  </label>
   <label class="oa-parameter-type">
     {{>json-schema/datatype parameter}}
     {{#if parameter.required}}

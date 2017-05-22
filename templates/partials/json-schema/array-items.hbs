@@ -1,0 +1,16 @@
+{{!
+renders a json-schema "items"-definition of array-types.
+}}
+<section class="oa-section">
+    <h4>
+      Items:
+      {{>json-schema/datatype .}}
+    </h4>
+    <div>
+      {{#if $ref}}
+        {{> json-schema/body schema=(json-schema--resolve-ref $ref)}}
+      {{else}}
+        {{> json-schema/body schema=.}}
+      {{/if}}
+    </div>
+</section>

@@ -16,6 +16,22 @@
           {{/if}}
         </label>
         <div class="oa-parameter-description">{{md description}}</div>
+        <div class="oa-json-inner-schema">
+          {{#if type}}
+            {{! Render differently depending on type}}
+            {{#ifeq type 'object'}}
+              {{>json-schema/type-object .}}
+            {{else}}
+              {{#ifeq type 'array'}}
+                {{#if items}}
+                  {{>json-schema/array-items items}}
+                {{/if}}
+              {{/ifeq}}
+            {{/ifeq}}
+          {{else}}
+            {{>json-schema/type-object .}}
+          {{/if}}
+        </div>
       </li>
     {{/each}}
   </section>
